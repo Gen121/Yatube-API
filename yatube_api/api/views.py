@@ -34,9 +34,6 @@ class CommentViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(author=self.request.user, post=self.get_post())
 
-    def perform_update(self, serializer):
-        serializer.save(author=self.request.user, post=self.get_post())
-
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
